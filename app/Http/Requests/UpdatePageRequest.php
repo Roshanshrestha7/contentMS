@@ -25,8 +25,8 @@ class UpdatePageRequest extends FormRequest
     public function rules()
     {
         return [
-            'name'=>'required|unique:pages|max:255',
-            'banner'=>'required',
+            'name'=>'required',
+
             'description'=>'required',
         ];
 

@@ -18,17 +18,15 @@ Route::get('/', function () {
 Auth::routes();
 Route::group(['prefix'=>'admin', 'middleware'=>'auth'],function () {
 
-
     Route::get('/home', 'HomeController@index')->name('home');
-
-    Route::get('/page/create', 'PagesController@create')->name('page.create');
-    Route::get('/page/index', 'PagesController@index')->name('page.index');
-    Route::post('/page/store', 'PagesController@store')->name('page.store');
-    Route::get('/page/view/{id}','PagesController@show')->name('page.show');
-    Route::get('/page/edit/{id}','PagesController@edit')->name('page.edit');
-    Route::post('/page/update/{id}','PagesController@update')->name('page.update');
-    Route::get('/page/delete/{id}','PagesController@destroy')->name('page.delete');
+    Route::resource('/page','PagesController');
+    Route::resource('/gallery','GalleriesController');
     Route::get('/page/status/{id}','PagesController@status')->name('page.status');
-
+    //Route::resource('/page','PagesController');
 
 });
+
+
+
+
+

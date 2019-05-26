@@ -171,7 +171,7 @@ a:focus {
   text-decoration: none;
   color: #72afd2;
 }
-/* Page Header */
+/* Test Header */
 .page-header {
   margin: 10px 0 20px 0;
   font-size: 22px;
@@ -3095,7 +3095,7 @@ table.text-center th {
   width: auto;
 }
 /*
- * Page: Mailbox
+ * Test: Mailbox
  * -------------
  */
 .mailbox-messages > .table {
@@ -3164,7 +3164,7 @@ table.text-center th {
   height: auto;
 }
 /*
- * Page: Lock Screen
+ * Test: Lock Screen
  * -----------------
  */
 /* ADD THIS CLASS TO THE <BODY> TAG */
@@ -3230,7 +3230,7 @@ table.text-center th {
   margin-top: 10px;
 }
 /*
- * Page: Login & Register
+ * Test: Login & Register
  * ----------------------
  */
 .login-logo,
@@ -3281,7 +3281,7 @@ table.text-center th {
   margin: 10px 0;
 }
 /*
- * Page: 400 and 500 error pages
+ * Test: 400 and 500 error pages
  * ------------------------------
  */
 .error-page {
@@ -3323,7 +3323,7 @@ table.text-center th {
   }
 }
 /*
- * Page: Invoice
+ * Test: Invoice
  * -------------
  */
 .invoice {
@@ -3337,7 +3337,7 @@ table.text-center th {
   margin-top: 0;
 }
 /*
- * Page: Profile
+ * Test: Profile
  * -------------
  */
 .profile-user-img {

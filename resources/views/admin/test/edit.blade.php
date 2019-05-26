@@ -41,7 +41,7 @@
                                     @foreach($arr as $key=> $banner)
                                         @if(file_exists('storage/uploads/page/' . $banner))
 
-                                            <img src="{{URL::to('storage/uploads/page/'. $banner)}}"/>
+                                            <img src="{{URL::to('storage/uploads/page/'. $banner)}}" width="50px" height="50px"/>
 
                                         @endif
 

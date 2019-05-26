@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html lang="{{ app()->getLocale() }}">
 <head>
+    <title>CMS</title>
 @include('admin.layout.head')
 </head>
 
@@ -13,8 +14,10 @@
     <div class="content-wrapper">
        @yield('content')
     </div>
-    @include('admin.layout.footer')
-
+    <div>
+        @include('admin.layout.footer')
+        @include('admin.layout.foot')
+    </div>
 </div>
 </body>
 

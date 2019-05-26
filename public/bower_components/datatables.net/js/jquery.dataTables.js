@@ -11901,7 +11901,7 @@
 		 * DataTables features six different built-in options for the buttons to
 		 * display for pagination control:
 		 *
-		 * * `numbers` - Page number buttons only
+		 * * `numbers` - Test number buttons only
 		 * * `simple` - 'Previous' and 'Next' buttons only
 		 * * 'simple_numbers` - 'Previous' and 'Next' buttons, plus page numbers
 		 * * `full` - 'First', 'Previous', 'Next' and 'Last' buttons
@@ -14419,7 +14419,7 @@
 		/* Filtering */
 		"sFilterInput": "",
 	
-		/* Page length */
+		/* Test length */
 		"sLengthSelect": "",
 	
 		/* Scrolling */
@@ -15199,7 +15199,7 @@
 	 */
 
 	/**
-	 * Page change event, fired when the paging of the table is altered.
+	 * Test change event, fired when the paging of the table is altered.
 	 *  @name DataTable#page.dt
 	 *  @event
 	 *  @param {event} e jQuery event object
@@ -15313,7 +15313,7 @@
 	 */
 
 	/**
-	 * Page length change event, fired when number of records to show on each
+	 * Test length change event, fired when number of records to show on each
 	 * page (the length) is changed.
 	 *  @name DataTable#length.dt
 	 *  @event

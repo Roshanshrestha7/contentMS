@@ -1,1 +1,1 @@
-﻿CKEDITOR.plugins.setLang("pagebreak","is",{alt:"Page Break",toolbar:"Setja inn síðuskil"});
+﻿CKEDITOR.plugins.setLang("pagebreak","is",{alt:"Test Break",toolbar:"Setja inn síðuskil"});

@@ -1,1 +1,1 @@
-﻿CKEDITOR.plugins.setLang("pagebreak","en-ca",{alt:"Page Break",toolbar:"Insert Page Break for Printing"});
+﻿CKEDITOR.plugins.setLang("pagebreak","en-ca",{alt:"Test Break",toolbar:"Insert Test Break for Printing"});

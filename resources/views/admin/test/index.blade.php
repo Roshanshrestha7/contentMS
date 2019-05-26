@@ -18,7 +18,7 @@
             </div>
         </div>
 
-        <a href="{{route('page.create')}}" class="pull-right btn btn-success btn-sm">Create Page</a>
+        <a href="{{route('test')}}" class="pull-right btn btn-success btn-sm">Create Page</a>
 
 
         <div class="card">
@@ -54,7 +54,7 @@
                                         ?>
                                     @if($arr!=null)
                                         @foreach($arr as $key=> $banner)
-                                               @if(file_exists('storage/uploads/page/' . $banner))
+                                               @if(file_exists('test' . $banner))
                                                    <img src="{{URL::to('storage/uploads/page/'. $banner)}}" width="50px" height="50px"/>
                                                @endif
                                                 <br>

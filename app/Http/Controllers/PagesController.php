@@ -3,23 +3,36 @@
 namespace App\Http\Controllers;
 
 use App\Http\Requests\PageRequest;
-use App\Http\Requests\UpdatePageRequest;
-use Illuminate\Http\Request;
-use App\Page;
-use Illuminate\Support\Facades\Input;
-use Illuminate\Support\Facades\Storage;
+use App\Pages;
+use App\Repository\PageRepository;
+use Session;
 
 class PagesController extends Controller
 {
+    /**
+     * @var Pages
+     */
+    private $pages;
+    /*
+     * @var PageRepository
+     * */
+    private  $pageRepository;
+
     /**
      * Display a listing of the resource.
      *
      * @return \Illuminate\Http\Response
      */
+
+    public function __construct(PageRepository $pageRepository)
+    {
+        $this->pageRepository = $pageRepository;
+    }
+
     public function index()
     {
-        $page = Page::all();
-        return view('admin.page.index')->with('pages',Page::all())->with('no', 1);
+        $page = $this->pageRepository->all();
+        return view('admin.pages.index',compact('page'));
     }
 
     /**
@@ -29,7 +42,8 @@ class PagesController extends Controller
      */
     public function create()
     {
-        return view('admin.page.create');
+        $parentPage = $this->pageRepository->getParent();
+        return view('admin.pages.create',compact('parentPage'));
     }
 
     /**
@@ -40,27 +54,30 @@ class PagesController extends Controller
      */
     public function store(PageRequest $request)
     {
-//        dd($request);
+        try{
 
-        $data=$request->all();
-            $banner = Input::file('banner');
-            $photo = [];
-        foreach ($banner as $val) {
-            $image_extension = $val->getClientOriginalExtension();
-            $image_name = 'page_banner'.str_random(15).'.'. strtolower($image_extension);
-            Storage::putFileAs('public/uploads/page/' . '/', $val, $image_name);
-            $photo[] = $image_name;
+            $pages = Pages::create($request->all());
+
+            if($pages){
+
+                session::flash('success','you created page successfully');
+
+            }else{
+                session::flash('error','Could not created !!');
+
+            }
+            return redirect(route('page.index'));
+
+        }catch (Exception $exception){
+
+            $e=$exception->getMessage();
+            session::flash('error','Exception :'.$e);
+            return redirect(route('page.index'));
+
+
         }
-            $data['banner']=json_encode($photo);
-//        $banner = $request->banner;
-//        $banner_new_name = $banner->getClientOriginalName();
-//        $banner->move('uploads',$banner_new_name);
 
 
-            $page = Page::create($data);
-
-
-        return redirect()->route('page.index')->with('info','page created ');
     }
 
     /**
@@ -71,8 +88,9 @@ class PagesController extends Controller
      */
     public function show($id)
     {
-        $page = Page::find($id);
-        return view('admin.page.view')->with('page',$page);
+       $page = $this->pageRepository->findById($id);
+       $pages=$this->pageRepository->all();
+       return view('admin.pages.view',compact('page','pages'));
     }
 
     /**
@@ -83,8 +101,9 @@ class PagesController extends Controller
      */
     public function edit($id)
     {
-        $page = Page::find($id);
-        return view('admin.page.edit')->with('pages',Page::all())->with('page',$page);
+        $page =$this->pageRepository->findById($id);
+        $pages=$this->pageRepository->all();
+        return view('admin.pages.edit',compact('page','pages'));
     }
 
     /**
@@ -94,23 +113,14 @@ class PagesController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(UpdatePageRequest $request, $id)
+    public function update(PageRequest $request, $id)
     {
-
-        $page = Page::find($id);
-        $data = $request->all();
-        $banner = Input::file('banner');
-        $photo = [];
-        foreach ($banner as $val) {
-            $image_extension = $val->getClientOriginalExtension();
-            $image_name = 'page_banner'.str_random(15).'.'. strtolower($image_extension);
-            Storage::putFileAs('public/uploads/page/' . '/', $val, $image_name);
-            $photo[] = $image_name;
+        $page = $this->pageRepository->findById($id);
+        if($page){
+            $page->fill($request->all())->save();
+            session::flash('success','pages updated');
+            return redirect(route('page.index'));
         }
-        $data['banner']=json_encode($photo);
-        $page->fill($data)->save();
-        return redirect()->route('page.index')->with('info','page updated');
-
 
     }
 
@@ -122,22 +132,24 @@ class PagesController extends Controller
      */
     public function destroy($id)
     {
-        $page = Page::find($id);
-        $page->delete();
-        return redirect()->back()->with('danger','page deleted');
-
+        $pages = $this->pageRepository->findById($id);
+        $pages->delete();
+        session::flash('success','Deleted Successfully');
+        return back();
     }
     public function status($id){
-        $page = Page::find($id);
+        $page = $this->pageRepository->findById($id);
         if($page->status =='inactive'){
             $page->status='active';
             $page->save();
+            session::flash('success','Status changed successfully');
             return back();
 
 
         }
-            $page->status='inactive';
-            $page->save();
+        $page->status='inactive';
+        $page->save();
+        session::flash('success','Status changed successfully');
         return back();
 
     }

@@ -1,6 +1,12 @@
-@extends('admin.layout.app')
+@include('admin.layout.head')
+    @include('admin.layout.foot')
 
-@section('content')
+
+<section class="content">
+
+
+
+<!-- Default box -->
     <div class="container">
         <div class="row-justify-content-center">
             <div class="col-lg-8">
@@ -28,7 +34,7 @@
                                     @foreach($arr as $key=> $banner)
                                         @if(file_exists('storage/uploads/page/' . $banner))
 
-                                            <img src="{{URL::to('storage/uploads/page/'. $banner)}}"/> &nbsp; &nbsp;
+                                            <img src="{{URL::to('test'. $banner)}}" width="300px" height="300px"/> &nbsp; &nbsp;
 
                                         @endif
                                     @endforeach
@@ -46,14 +52,12 @@
                     </div>
                     <!-- /.box-body -->
                     <div class="box-footer">
-                        <a href="{{route('page.index')}}" class="btn btn-sm btn-info">back</a>
+                        <a href="{{route('pages')}}" class="btn btn-sm btn-info">back</a>
                     </div>
                 </div>
             </div>
         </div>
     </div>
+    <!-- /.box -->
 
-
-
-
-@endsection()
+</section>

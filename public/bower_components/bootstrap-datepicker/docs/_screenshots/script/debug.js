@@ -1,7 +1,7 @@
 /*
-    Usage: $ phantomjs --remote-debugger-port=9001 --remote-debugger-autorun=yes debug.js page.html
+    Usage: $ phantomjs --remote-debugger-port=9001 --remote-debugger-autorun=yes debug.js test.html
 
-    Open Chrome tab to http://localhost:9001/; open second link (ie, path to page.html)
+    Open Chrome tab to http://localhost:9001/; open second link (ie, path to test.html)
 */
 var system  = require('system' ), fs = require('fs'), webpage = require('webpage');
 
@@ -9,8 +9,8 @@ var system  = require('system' ), fs = require('fs'), webpage = require('webpage
     var page=webpage.create();
 
     function debugPage(){
-        console.log("Refresh a second debugger-port page and open a second webkit inspector for the target page.");
-        console.log("Letting this page continue will then trigger a break in the target page.");
+        console.log("Refresh a second debugger-port test and open a second webkit inspector for the target test.");
+        console.log("Letting this test continue will then trigger a break in the target test.");
         debugger; // pause here in first web browser tab for steps 5 & 6
         page.open(system.args[1]);
         page.evaluateAsync(function() {

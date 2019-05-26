@@ -18,17 +18,22 @@
             <li>
                 <a href="{{route('home')}}">
                     <i class="fa fa-dashboard"></i> <span>Home</span>
-                    <span class="pull-right-container">
+                    <span class="pull-right-container"></span>
+                </a>
+            </li>
 
-            </span>
+            <li>
+                <a href="{{route('page.index')}}">
+                    <i class="fa fa-file"></i><span>Page</span>
+                    <span class="pull-right-container"></span>
                 </a>
             </li>
             <li>
-                <a href="{{route('page.index')}}">Page</a>
+                <a href="{{route('gallery.index')}}">
+                    <i class="fa fa-envira"></i><span>Gallery</span>
+                    <span class="pull-right-container"></span>
+                </a>
             </li>
-
-
-
         </ul>
     </section>
     <!-- /.sidebar -->
