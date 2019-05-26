@@ -9,6 +9,7 @@
     </h1>
     <ol class="breadcrumb">
         <li><a href="#"><i class="fa fa-envira"></i> Gallery</a></li>
+        <li><a href="#">index</a></li>
         <li><a href="#">Create Gallery</a></li>
     </ol>
 </section>
@@ -23,7 +24,7 @@
                 </div>
                 <!-- /.box-header -->
                 <!-- form start -->
-                {{ Form::open(array('url' => 'admin/page','method' => 'post')) }}
+                {{ Form::open(array('url' => 'admin/gallery','method' => 'post','enctype' => 'multipart/form-data')) }}
                 @csrf
                 <div class="box-body">
 
@@ -33,14 +34,22 @@
                     </div>
                     <div class="form-group">
                         <label for="exampleInputFile">File input</label>
-                        <input type="file" name="image" id="exampleInputFile">
+                        <input type="file" name="image[]" class="form-control" multiple>
 
                     </div>
                     <div class="form-group">
-                        <label for="exampleInputFile">Action</label>&nbsp &nbsp
-                        <input type="radio" name="status" value="active" checked >Active &nbsp &nbsp
-                        <input type="radio" name="status" value="inactive">Inactive
+                        <div class="col-md-5">
+                            <label for="exampleInputFile">Status</label>&nbsp &nbsp <br>
+                            <input type="radio" name="status" value="active" checked >Active &nbsp &nbsp
+                            <input type="radio" name="status" value="inactive">Inactive
+                        </div>
+                        <div class="col-md-5">
+                            <label for="exampleInputFile">Is banner?</label>&nbsp &nbsp <br>
+                            <input type="radio" name="banner" value="yes" >Yes &nbsp &nbsp
+                            <input type="radio" name="banner" value="no" checked>No
+                        </div>
                     </div>
+
 
                 </div>
 

@@ -7,9 +7,8 @@
             <small>advanced tables</small>
         </h1>
         <ol class="breadcrumb">
-            <li><a href="#"><i class="fa fa-dashboard"></i> Home</a></li>
-            <li><a href="#">Tables</a></li>
-            <li class="active">Data tables</li>
+            <li><a href="#"><i class="fa fa-envira"></i> Gallery</a></li>
+            <li><a href="#">Index</a></li>
         </ol>
     </section>
 
@@ -49,6 +48,10 @@
                                                 Status
                                             </th>
                                             <th class="sorting" tabindex="0" aria-controls="example2" rowspan="1"
+                                                colspan="1" aria-label="Platform(s): activate to sort column ascending">
+                                                Is banner?
+                                            </th>
+                                            <th class="sorting" tabindex="0" aria-controls="example2" rowspan="1"
                                                 colspan="1"
                                                 aria-label="Engine version: activate to sort column ascending">
                                                 Images
@@ -60,15 +63,71 @@
                                         </tr>
                                         </thead>
                                         <tbody>
-                                        <th>
+
                                             @if($gallery->count()>0)
+                                                <?php $i=1; ?>
                                                 @foreach($gallery as $galleries)
-                                                    
+                                                    <tr>
+                                                        <td>{{$i++}}</td>
+
+                                                    <td>{{$galleries->title}}</td>
+                                                    <td>@if($galleries->status=='active')
+                                                            <a href="{{route('gallery.status',['id' => $galleries->id])}}" class="btn btn-sm btn-success">Active</a>
+                                                        @elseif($galleries->status == 'inactive')
+                                                            <a href="{{route('gallery.status',['id' => $galleries->id])}}" class="btn btn-sm btn-danger">Inactive</a>
+                                                        @endif
+                                                    </td>
+                                                        <td>@if($galleries->banner=='yes')
+                                                                <a href="{{route('gallery.banner',['id' => $galleries->id])}}" class="btn btn-sm btn-success">Yes</a>
+                                                            @elseif($galleries->banner == 'no')
+                                                                <a href="{{route('gallery.banner',['id' => $galleries->id])}}" class="btn btn-sm btn-danger">No</a>
+                                                            @endif
+                                                        </td>
+                                                    <td>
+                                                        @if($galleries->image !== NULL)
+                                                            <?php
+                                                            $arr = json_decode($galleries->image);
+                                                            ?>
+                                                            @if($arr!=null)
+                                                                @foreach($arr as $key=> $img)
+
+                                                                        <img src="{{asset('storage/uploads/gallery/'. $img)}}" width="50px" height="50px"/>
+
+                                                                    <br>
+                                                                @endforeach
+                                                            @endif
+                                                        @endif
+
+                                                    </td>
+                                                    <td>
+                                                        <a href=""><i class="fa fa-eye" style="font-size: 20px"></i></a>&nbsp &nbsp
+                                                        <a href="{{route('gallery.edit',['id'=> $galleries->id])}}"><i class="fa fa-edit" style="font-size: 20px"></i></a>&nbsp &nbsp
+
+                                                        {!! Form::open(['method' => 'DELETE', 'route'=>['gallery.destroy',
+                                                        $galleries->id],'class'=> 'inline']) !!}
+                                                        <button type="submit"
+                                                                class="btn btn-danger btn-xs deleteButton actionIcon"
+                                                                data-toggle="tooltip"
+                                                                data-placement="top" title="Delete"
+                                                                onclick="javascript:return confirm('Are you sure you want to delete?');">
+                                                            <i class="fa fa-trash-o"></i>
+                                                        </button>
+
+                                                        {!! Form::close() !!}
+
+                                                    </td>
+                                                    </tr>
+                                                @endforeach
+
 
                                              @else
+                                                <tr>
+                                                    <th colspan="6" class="text-center">NO Galleries</th>
+                                                </tr>
 
                                              @endif
-                                        </th>
+
+                                        </tbody>
 
 
                                     </table>

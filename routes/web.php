@@ -21,7 +21,11 @@ Route::group(['prefix'=>'admin', 'middleware'=>'auth'],function () {
     Route::get('/home', 'HomeController@index')->name('home');
     Route::resource('/page','PagesController');
     Route::resource('/gallery','GalleriesController');
+
     Route::get('/page/status/{id}','PagesController@status')->name('page.status');
+    Route::get('/gallery/status/{id}','GalleriesController@status')->name('gallery.status');
+    Route::get('/gallery/banner/{id}','GalleriesController@banner')->name('gallery.banner');
+
     //Route::resource('/page','PagesController');
 
 });

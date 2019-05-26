@@ -17,6 +17,7 @@ class CreateGalleriesTable extends Migration
             $table->bigIncrements('id');
             $table->string('title');
             $table->enum('status',['active','inactive'])->default('active');
+            $table->enum('banner',['yes','no'])->default('no');
             $table->string('image');
             $table->timestamps();
         });

@@ -20,9 +20,11 @@ class GalleryRepository
 
     public function all()
     {
-        $gallery= $this->gallery->select('gallery.*' ,'gallery.id as id')
-            ->orderBy('order')
+        $gallery= $this->gallery->select('galleries.*')
+            ->orderBy('id','ASC')
             ->get();
+
+        $galleries=$this->gallery->all();
         return $gallery;
 
     }

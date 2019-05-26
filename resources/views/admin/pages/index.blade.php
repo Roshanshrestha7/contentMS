@@ -3,13 +3,12 @@
 
     <section class="content-header">
         <h1>
-            Data Tables
+            Page Tables
             <small>advanced tables</small>
         </h1>
         <ol class="breadcrumb">
-            <li><a href="#"><i class="fa fa-dashboard"></i> Home</a></li>
-            <li><a href="#">Tables</a></li>
-            <li class="active">Data tables</li>
+            <li><a href="#"><i class="fa fa-file"></i> Page</a></li>
+            <li><a href="#">Index</a></li>
         </ol>
     </section>
 
