@@ -1,4 +1,5 @@
 @include('admin.layout.head')
+
 <body class="hold-transition login-page">
 <div class="login-box">
     <div class="login-logo">
@@ -6,6 +7,7 @@
     </div>
     <!-- /.login-logo -->
     <div class="login-box-body">
+        @include('admin.includes.error')
         <p class="login-box-msg">Sign in to start your session</p>
 
         <form action="{{route('login')}}" method="post">
@@ -47,7 +49,6 @@
             </a>
         @endif
         <br>
-        <a href="{{route('register')}}" class="text-center">Register a new membership</a>
 
     </div>
     <!-- /.login-box-body -->

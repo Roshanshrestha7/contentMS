@@ -1,16 +1,15 @@
-<html lang="{{ app()->getLocale() }}">
-
+<html>
 <head>
     @include('frontend.layout.head')
+    <title>CMS</title>
 </head>
 <body>
-<div class="wrapper">
-
     @include('frontend.layout.header')
-    <div class="content-wrapper">
-        @yield('content')
-    </div>
-</div>
+   <div class="card-body">
 
+       @yield('content')
+   </div>
+
+    @include('frontend.layout.footer')
 </body>
 </html>

@@ -55,7 +55,8 @@
                         </div>
                         <div class="form-group">
                             <label for="exampleInputFile">Description</label>
-                            <textarea class="form-control" rows="3" name="description" placeholder="Enter ...">{{$page->description}}</textarea>
+                            <textarea  name="description" placeholder="Place some text here"
+                                       style="width: 100%; height: 200px; font-size: 14px; line-height: 18px; border: 1px solid #dddddd; padding: 10px;">{{$page->description}}</textarea>
                         </div>
                         <div class="form-group">
                             <label for="status"> Active ?</label><br>

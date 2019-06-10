@@ -14,7 +14,7 @@
             <div class="collapse navbar-collapse" >
                 <ul class="nav navbar-nav" id="icon-layout">
                     {{--@foreach($pageName as $title)--}}
-                        {{--<li class="active"><a href="{{route('frontend')}}">{{$title->name}}</a></li>--}}
+                        {{--<li class="active"><a href="{{route('fronte')}}">{{$title->name}}</a></li>--}}
                     {{--@endforeach--}}
                     <li><a href="{{url('/test')}}">Pinboard</a></li>
                     <li><a href="{{url('/pages')}}">Calender</a></li>

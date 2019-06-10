@@ -1,6 +1,6 @@
 @extends('frontview.layout.app')
 
 @section('content')
-    @include('frontend.pages.single')
+    @include('fronte.pages.single')
 
 @endsection

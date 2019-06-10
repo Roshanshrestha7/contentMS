@@ -19,7 +19,6 @@
 <script src="{{asset('bower_components/jquery-knob/dist/jquery.knob.min.js')}}"></script>
 <!-- daterangepicker -->
 <script src="{{asset('bower_components/moment/min/moment.min.js')}}"></script>
-<script src="{{asset('bower_components/bootstrap-daterangepicker/daterangepicker.js')}}"></script>
 <!-- datepicker -->
 <script src="{{asset('bower_components/bootstrap-datepicker/dist/js/bootstrap-datepicker.min.js')}}"></script>
 <!-- Bootstrap WYSIHTML5 -->
@@ -42,6 +41,20 @@
 <script src="https://cdn.ckeditor.com/4.11.4/standard/ckeditor.js"></script>
 
 
+<script src="{{asset('bower_components/ckeditor/ckeditor.js')}}"></script>
+<!-- Bootstrap WYSIHTML5 -->
+<script src="{{asset('plugins/bootstrap-wysihtml5/bootstrap3-wysihtml5.all.min.js ')}}"></script>
+@yield('js')
+<script>
+    $(function () {
+        // Replace the <textarea id="editor1"> with a CKEditor
+        // instance, using default configuration.
+        CKEDITOR.replace('description')
+        //bootstrap WYSIHTML5 - text editor
+        $('.textarea').wysihtml5()
+    })
+</script>
+
 <script src="{{asset('js/toastr.min.js')}}"></script>
 
 <script>
@@ -49,4 +62,10 @@
         toastr.success("{{  Session::get('success') }}")
 
     @endif
+</script>
+
+<script>
+    //Date picker
+    $('#datepicker').datepicker({
+        autoclose: true})
 </script>

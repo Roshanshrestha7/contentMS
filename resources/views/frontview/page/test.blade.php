@@ -28,7 +28,7 @@
             <div class="collapse navbar-collapse" >
                 <ul class="nav navbar-nav" id="icon-layout">
                     {{--@foreach($pageName as $title)--}}
-                    {{--<li class="active"><a href="{{route('frontend')}}">{{$title->name}}</a></li>--}}
+                    {{--<li class="active"><a href="{{route('fronte')}}">{{$title->name}}</a></li>--}}
                     {{--@endforeach--}}
                     <li><a href="{{url('/test')}}">Pinboard</a></li>
                     <li><a href="#calender">Calender</a></li>
@@ -197,7 +197,7 @@
         $date = '';
         $todaydateTime= new DateTime($date, new DateTimeZone('UTC'));
         $todaydateTime->setTimeZone(new DateTimeZone('Asia/Kathmandu'));
-        echo $todaydateTime->format('Y-m-d H:i:s');
+        echo $todaydateTime->format('Y-m-d H:i');
         ?>
     </footer>
     {{--footer end--}}

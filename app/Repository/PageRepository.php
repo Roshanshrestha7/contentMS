@@ -20,9 +20,7 @@ class PageRepository
 
     public function all()
     {
-        $pages= $this->pages->select('pages.*' ,'pages.id as id')
-        ->orderBy('order')
-            ->get();
+        $pages= $this->pages->orderBy('order')->get();
         return $pages;
 
     }
@@ -36,6 +34,21 @@ class PageRepository
         $pages = $this->pages->where('status','active')
             ->orderBy('order','desc')
             ->get();
+        return $pages;
+    }
+    public function status()
+    {
+        $pages = $this->pages->where('status', '=', 'active')
+            ->whereNull('parent_page_id')
+            ->orderBy('order', 'asc')
+            ->get();
+        return $pages;
+    }
+    public function subheader()
+    {
+        $pages = $this->pages->
+        where('parent_page_id','=','id')
+            ->orderBy('order','asc')->get();
         return $pages;
     }
 

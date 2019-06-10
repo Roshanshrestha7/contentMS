@@ -54,6 +54,11 @@
                                             <th class="sorting" tabindex="0" aria-controls="example2" rowspan="1"
                                                 colspan="1"
                                                 aria-label="Engine version: activate to sort column ascending">
+                                                Thumbnail
+                                            </th>
+                                            <th class="sorting" tabindex="0" aria-controls="example2" rowspan="1"
+                                                colspan="1"
+                                                aria-label="Engine version: activate to sort column ascending">
                                                 Images
                                             </th>
                                             <th class="sorting" tabindex="0" aria-controls="example2" rowspan="1"
@@ -99,8 +104,15 @@
                                                         @endif
 
                                                     </td>
+                                                        <td>
+                                                            {{--<form action="{{url('admin/getImage')}}" method="get">--}}
+                                                                {{--<input type="hidden" name="gallery_id" value="{{$galleries->id}}">--}}
+                                                                {{--<button type="submit" class="btn btn-info">View Images</button>--}}
+
+                                                            {{--</form>--}}
+                                                            <a href="{{url('admin/getImage/'.$galleries->id)}}">view Images</a>
+                                                        </td>
                                                     <td>
-                                                        <a href=""><i class="fa fa-eye" style="font-size: 20px"></i></a>&nbsp &nbsp
                                                         <a href="{{route('gallery.edit',['id'=> $galleries->id])}}"><i class="fa fa-edit" style="font-size: 20px"></i></a>&nbsp &nbsp
 
                                                         {!! Form::open(['method' => 'DELETE', 'route'=>['gallery.destroy',
@@ -122,7 +134,7 @@
 
                                              @else
                                                 <tr>
-                                                    <th colspan="6" class="text-center">NO Galleries</th>
+                                                    <th colspan="7" class="text-center">NO Galleries</th>
                                                 </tr>
 
                                              @endif

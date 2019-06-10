@@ -24,6 +24,8 @@
                 </div>
                 <!-- /.box-header -->
                 <!-- form start -->
+                @include('admin.includes.error')
+
                 {{ Form::open(array('url' => 'admin/gallery','method' => 'post','enctype' => 'multipart/form-data')) }}
                 @csrf
                 <div class="box-body">
@@ -34,7 +36,7 @@
                     </div>
                     <div class="form-group">
                         <label for="exampleInputFile">File input</label>
-                        <input type="file" name="image[]" class="form-control" multiple>
+                        <input type="file" name="image[]" class="form-control">
 
                     </div>
                     <div class="form-group">

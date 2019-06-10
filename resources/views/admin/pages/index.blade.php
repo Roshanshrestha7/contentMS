@@ -29,35 +29,26 @@
 
                             <div class="row">
                                 <div class="col-sm-12">
-                                    <table id="example2" class="table table-bordered table-hover dataTable" role="grid"
+                                    <table id="example2" class="table table-bordered table-hover table-responsive" role="grid"
                                            aria-describedby="example2_info">
                                         <thead>
                                         <tr role="row">
-                                            <th class="sorting_asc" tabindex="0" aria-controls="example2" rowspan="1"
-                                                colspan="1" aria-sort="ascending"
-                                                aria-label="Rendering engine: activate to sort column descending">
+                                            <th>
                                                 S.N.
                                             </th>
-                                            <th class="sorting_asc" tabindex="0" aria-controls="example2" rowspan="1"
-                                                colspan="1" aria-sort="ascending"
-                                                aria-label="Rendering engine: activate to sort column descending">
+                                            <th>
                                                 Parent Page
                                             </th>
-                                            <th class="sorting" tabindex="0" aria-controls="example2" rowspan="1"
-                                                colspan="1" aria-label="Browser: activate to sort column ascending">
+                                            <th>
                                                 Page
                                             </th>
-                                            <th class="sorting" tabindex="0" aria-controls="example2" rowspan="1"
-                                                colspan="1" aria-label="Platform(s): activate to sort column ascending">
+                                            <th>
                                                 Status
                                             </th>
-                                            <th class="sorting" tabindex="0" aria-controls="example2" rowspan="1"
-                                                colspan="1"
-                                                aria-label="Engine version: activate to sort column ascending">
+                                            <th>
                                                 Order
                                             </th>
-                                            <th class="sorting" tabindex="0" aria-controls="example2" rowspan="1"
-                                                colspan="1" aria-label="CSS grade: activate to sort column ascending">
+                                            <th>
                                                 Action
                                             </th>
                                         </tr>

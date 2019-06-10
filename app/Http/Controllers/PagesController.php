@@ -71,7 +71,7 @@ class PagesController extends Controller
         }catch (Exception $exception){
 
             $e=$exception->getMessage();
-            session::flash('error','Exception :'.$e);
+            session()->flash('error','Exception :'.$e);
             return redirect(route('page.index'));
 
 

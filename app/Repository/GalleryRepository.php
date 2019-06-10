@@ -34,6 +34,23 @@ class GalleryRepository
         $gallery = $this->gallery->find($id);
         return $gallery;
     }
+    public function carousel()
+    {
+        $gallery = $this->gallery->select('galleries.*')
+            ->where('status','=','active')
+            ->where('banner','=','yes')
+            ->orderBy('id','desc')->limit(3)
+            ->get();
+        return $gallery;
+    }
+    public function bodyimage()
+    {
+        $gallery = $this->gallery->select('galleries.*')
+            ->where('status','=','active')
+            ->orderBy('id','asc')
+            ->get();
+        return $gallery;
+    }
 
 
 

@@ -22,7 +22,9 @@
                     <div class="box-header with-border">
                         <h3 class="box-title">Create Page</h3>
                     </div>
-                    <!-- /.box-header -->
+                @include('admin.includes.error')
+
+                <!-- /.box-header -->
                     <!-- form start -->
                     {{ Form::open(array('url' => 'admin/page','method' => 'post')) }}
                     @csrf
@@ -41,10 +43,11 @@
                                 <label for="exampleInputPassword1">Title</label>
                                 <input type="text" class="form-control" name="title" id="inputEmail3" placeholder="Title">
                             </div>
-                            <div class="form-group">
-                                <label for="exampleInputFile">Description</label>
-                                <textarea class="form-control" rows="3" name="description" placeholder="Enter ..."></textarea>
-                            </div>
+                                <div class="form-group">
+                                    <label for="exampleInputFile">Description</label>
+                                    <textarea  name="description" placeholder="Place some text here"
+                                              style="width: 100%; height: 200px; font-size: 14px; line-height: 18px; border: 1px solid #dddddd; padding: 10px;"></textarea>
+                                </div>
                             <div class="form-group">
                                 <label for="exampleInputFile">Action</label>&nbsp &nbsp
                                 <input type="radio" name="status" value="active" checked >Active &nbsp &nbsp

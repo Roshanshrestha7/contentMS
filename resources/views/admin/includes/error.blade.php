@@ -1,10 +1,10 @@
 @if(count($errors) > 0)
-    <ul class="list-group">
+    <div class="validation-errors">
         @foreach($errors->all() as $error)
-            <li class="list-group-item text-danger">
+            <div class="validation-error-item" style="color: red        ">
                 {{ $error }}
-            </li>
+            </div>
         @endforeach
-    </ul>
+    </div>
 
 @endif

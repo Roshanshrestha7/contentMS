@@ -11,12 +11,11 @@
     @include('admin.layout.header')
     @include('admin.layout.sidebar')
 
-    <div class="content-wrapper">
+    <div class="content-wrapper" >
        @yield('content')
     </div>
     <div>
         @include('admin.layout.footer')
-        @include('admin.layout.foot')
     </div>
 </div>
 </body>

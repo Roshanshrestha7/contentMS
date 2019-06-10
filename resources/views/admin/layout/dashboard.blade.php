@@ -1,6 +1,6 @@
 @extends('admin.layout.app')
 @section('content')
-<section class="content">
+<section class="content" style="min-height: 630px">
     <br>
     <br>
     <br>

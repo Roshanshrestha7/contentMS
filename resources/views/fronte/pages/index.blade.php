@@ -1,4 +1,4 @@
-@extends('frontend.layout.app')
+@extends('fronte.layout.app')
 @section('content')
     <section class="content">
         <div class="card mb-3">

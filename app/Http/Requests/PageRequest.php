@@ -26,7 +26,7 @@ class PageRequest extends FormRequest
         return [
             'title' => 'required',
             'description' => 'required',
-            'order' => 'required'
+            'order' => 'required|integer'
             ];
     }
 }

@@ -45,9 +45,11 @@
                         <td>Description</td>
                         <td>{{$page->description}}</td>
                     </tr>
-
-
                 </table>
+                <br>
+                <div class="text-center">
+                <a href="{{route('page.index')}}" class="btn btn-xs btn-info">Back</a>
+                </div>
             </div>
             <!-- /.box-body -->
 
