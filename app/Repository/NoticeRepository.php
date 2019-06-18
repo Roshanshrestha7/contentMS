@@ -19,8 +19,6 @@ class NoticeRepository
         $notice= $this->notice->select('notices.*')
             ->orderBy('id','ASC')
             ->get();
-
-        $galleries=$this->notice->all();
         return $notice;
 
     }
@@ -32,8 +30,8 @@ class NoticeRepository
     public function status()
     {
         $notice = $this->notice->where('status','=','active')
-            ->orderBy('id','asc')
-            ->get();
+            ->orderBy('id','desc')
+            ->paginate(5);
         return $notice;
     }
 

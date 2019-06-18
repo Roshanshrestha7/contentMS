@@ -24,6 +24,8 @@ Route::group(['prefix'=>'admin', 'middleware'=>'auth'],function () {
     Route::resource('/user','UsersController');
     Route::resource('/notice','NoticesController');
     Route::resource('/event','EventsController');
+    Route::resource('/subscribe','SubscribesController');
+    Route::resource('/newsletter','NewsletterController');
     //Route::get('/getImage','ImagesController@getImages');
     Route::get('/getImage/{id}','ImagesController@getImages');
     Route::get('/addImage/{id}','ImagesController@getImages');
@@ -36,6 +38,10 @@ Route::group(['prefix'=>'admin', 'middleware'=>'auth'],function () {
     Route::get('/gallery/banner/{id}','GalleriesController@banner')->name('gallery.banner');
     Route::get('/user/admin/{id}','UsersController@admin')->name('user.admin');
     Route::get('/notice/status/{id}','NoticesController@status')->name('notice.status');
+    Route::get('/event/status/{id}','EventsController@status')->name('event.status');
+    Route::get('/subscribe/status/{id}','SubscribesController@status')->name('subscribe.status');
+
+
 
 
     Route::post('/changePassword','UsersController@changePassword')->name('changePassword');
@@ -49,6 +55,10 @@ Route::get('/gallery/{id}','FrontEndsController@getImages')->name('gallery.coll'
 Route::get('/contact','FrontEndsController@form')->name('contact');
 Route::get('/notice','FrontEndsController@notice')->name('notice');
 Route::get('/notice/single/{id}','FrontEndsController@singlenot')->name('singlenotice');
+Route::get('/event','FrontEndsController@event')->name('event');
+Route::get('/event/single/{id}','FrontEndsController@singleevent')->name('singleevent');
+
+
 
 Route::get('/test','FrontEndsController@index');
 

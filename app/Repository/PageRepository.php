@@ -44,13 +44,13 @@ class PageRepository
             ->get();
         return $pages;
     }
-    public function subheader()
-    {
-        $pages = $this->pages->
-        where('parent_page_id','=','id')
-            ->orderBy('order','asc')->get();
-        return $pages;
-    }
+//    public function subheader()
+//    {
+//        $pages = $this->pages->
+//        where('parent_page_id','=','id')
+//            ->orderBy('order','asc')->get();
+//        return $pages;
+//    }
 
 
 }

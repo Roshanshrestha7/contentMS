@@ -225,7 +225,7 @@
 
                 <p>
                   {{Auth::user()->name}} - Web Developer
-                  <small>Member since Nov. 2012</small>
+                  <small>Member since {{Auth::user()->created_at}}</small>
                 </p>
               </li>
               <!-- Menu Body -->

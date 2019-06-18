@@ -29,7 +29,7 @@
 
                             <div class="row">
                                 <div class="col-sm-12">
-                                    <table id="example2" class="table table-bordered table-hover table-responsive" role="grid"
+                                    <table id="example1" class="table table-bordered table-hover table-responsive" role="grid"
                                            aria-describedby="example2_info">
                                         <thead>
                                         <tr role="row">

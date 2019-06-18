@@ -2,10 +2,23 @@
 
 namespace App\Http\Controllers;
 
+use App\Event;
+use App\Http\Requests\EventRequest;
+use App\Notice;
 use Illuminate\Http\Request;
+use Auth;
+use Session;
+use App\Repository\EventRepository;
 
 class EventsController extends Controller
 {
+    private $Event;
+    private $EventRepository;
+
+    public function __construct(EventRepository $eventRepository)
+    {
+        $this->eventRepository = $eventRepository;
+    }
     /**
      * Display a listing of the resource.
      *
@@ -13,7 +26,8 @@ class EventsController extends Controller
      */
     public function index()
     {
-        return view('admin.event.index');
+        $events = $this->eventRepository->all();
+        return view('admin.event.index',compact('events'));
     }
 
     /**
@@ -32,9 +46,17 @@ class EventsController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(EventRequest $request)
     {
-        //
+        $data = $request->all();
+        $data['user_id'] = Auth::user()->id;
+        $image = $request->image;
+        $image_new_name = time() . $image->getClientOriginalName();
+        $image->move('uploads/banner', $image_new_name);
+        $data['image'] = 'uploads/banner/' . $image_new_name;
+        $event = Event::create($data);
+        session::flash('success','Event created successfully');
+        return redirect(route('event.index'));
     }
 
     /**
@@ -45,7 +67,8 @@ class EventsController extends Controller
      */
     public function show($id)
     {
-        //
+        $event = $this->eventRepository->findById($id);
+        return view('admin.event.view',compact('event'));
     }
 
     /**
@@ -56,7 +79,8 @@ class EventsController extends Controller
      */
     public function edit($id)
     {
-        //
+        $event = $this->eventRepository->findById($id);
+        return view('admin.event.edit',compact('event'));
     }
 
     /**
@@ -68,7 +92,20 @@ class EventsController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $event = $this->eventRepository->findById($id);
+        $data = $request->all();
+        $data['user_id'] = Auth::user()->id;
+        if ($request->hasFile('image'))
+        {
+            $image = $request->image;
+            $image_new_name = time() . $image->getClientOriginalName();
+            $image->move('uploads/banner', $image_new_name);
+            $data['image'] = 'uploads/banner/' . $image_new_name;
+        }
+        $event->fill($data)->save();
+        session::flash('success','Event updated successfully');
+        return redirect(route('event.index'));
+
     }
 
     /**
@@ -79,6 +116,26 @@ class EventsController extends Controller
      */
     public function destroy($id)
     {
-        //
+        $event = $this->eventRepository->findById($id);
+        $event->delete();
+        session::flash('success','Event Deleted Successfully');
+        return back();
+
+    }
+    public function status($id){
+        $event = $this->eventRepository->findById($id);
+        if($event->status =='inactive'){
+            $event->status='active';
+            $event->save();
+            session::flash('success','Status changed successfully');
+            return back();
+
+
+        }
+        $event->status='inactive';
+        $event->save();
+        session::flash('success','Status changed successfully');
+        return back();
+
     }
 }

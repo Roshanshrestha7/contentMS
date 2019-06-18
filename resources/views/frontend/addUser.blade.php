@@ -1,4 +1,4 @@
-<!DOCTYPE>
+    <!DOCTYPE>
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
     <!-- If you delete this tag, the sky will fall on your head -->
@@ -246,10 +246,10 @@
             <div class="content">
                 <table bgcolor="#999999">
                     <tr>
-                        <td> <img src="{{url('uploads/images/logo.png')}}" width="500px" class="logoImage">
+                        <td> <img src="{{url('uploads/images/bb.jpg')}}" width="500px" class="logoImage">
                         </td>
                         <td style="color: red; text-align: center">Login Credentials</td>
-                        <td align="right"><img src="{{url('uploads/images/logo.png')}}" width="500px" class="logoImage"></td>
+                        <td align="right"><img src="{{url('uploads/images/bb.jpg')}}" width="500px" class="logoImage"></td>
                     </tr>
                 </table>
             </div>

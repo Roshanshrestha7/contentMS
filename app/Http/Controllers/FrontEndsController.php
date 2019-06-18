@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Pages;
+use App\Repository\EventRepository;
 use App\Repository\NoticeRepository;
 use Illuminate\Http\Request;
 use App\Repository\PageRepository;
@@ -17,6 +18,8 @@ class FrontEndsController extends Controller
     private $gallery;
     private $image;
     private $notice;
+    private  $event;
+    private $eventRepository;
     private $imageRepository;
     private $pageRepository;
     private $galleryRepository;
@@ -27,11 +30,13 @@ class FrontEndsController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function  __construct(PageRepository $pageRepository, GalleryRepository $galleryRepository,
-                                 ImageRepository $imageRepository, NoticeRepository $noticeRepository)
+                                 ImageRepository $imageRepository, NoticeRepository $noticeRepository,
+                                    EventRepository $eventRepository)
     {
         $this->pageRepository = $pageRepository;
         $this->galleryRepository = $galleryRepository;
         $this->imageRepository = $imageRepository;
+        $this->eventRepository = $eventRepository;
         $this->noticeRepository = $noticeRepository;
     }
 
@@ -145,5 +150,17 @@ class FrontEndsController extends Controller
         $pageName = $this->pageRepository->status();
 
         return view('frontend.singlenotice',compact('notice','pageName'));
+    }
+    public function event()
+    {
+        $pageName = $this->pageRepository->status();
+        $events = $this->eventRepository->status();
+        return view('frontend.event',compact('pageName','events'));
+    }
+    public  function singleevent($id)
+    {
+        $event = $this->eventRepository->findById($id);
+        $pageName = $this->pageRepository->status();
+        return view('frontend.eventsingle',compact('pageName','event'));
     }
 }

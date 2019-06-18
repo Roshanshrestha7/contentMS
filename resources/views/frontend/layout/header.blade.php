@@ -74,6 +74,7 @@
                     @endif
                 @endforeach
                 <li><a href="{{route('notice')}}">Notice</a></li>
+                <li><a href="{{route('event')}}">Event</a></li>
                 <li><a href="{{route('contact')}}">Contact Us</a></li>
             </ul>
             <ul class="nav navbar-nav navbar-right">

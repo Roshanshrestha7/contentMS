@@ -1,7 +1,7 @@
 @extends('frontend.layout.app')
 @section('content')
 
-    <div class="card"  style="padding-top: 40px; background-color: lightgrey; min-height: 600px;">
+    <div class="card"  style="padding-top: 40px;  min-height: 600px;">
 
             <div class="card-body" >
                 <div class="col-md-6" >
@@ -41,10 +41,17 @@
                         </div>
                     </div>
                 </div>
-                <div class="col-md-12" style="text-align: center; background-color: lightsteelblue; padding-top: 20px">
-                    <h3><i class="fa fa-map-marker"></i>&nbsp; Young Minds Tower, Chowk Prayag <br> Shanti Nagar, Prayag Marg, <br> Kathmandu 44600</h3>
-                    <h3><i class="fa fa-phone"></i>&nbsp; 01-661234</h3>
-                    <h3><i class="fa fa-envelope-open"></i>&nbsp; example@gmail.com</h3>
+                <br><br><br><br><br><br>
+                <br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
+
+
+
+                <div class="col-md-12" style="text-align: center; background-color: lightblue; padding-top: 10px">
+
+                    <h3>Asdfgh hjklzxcv creation pvt. ltd.</h3>
+                    <h4><i class="fa fa-map-marker"></i>&nbsp; Young Minds Tower, Chowk Prayag <br> Shanti Nagar, Prayag Marg, <br> Kathmandu 44600</h4>
+                    <h4><i class="fa fa-phone"></i>&nbsp; 01-661244</h4>
+                    <h4><i class="fa fa-envelope-open"></i>&nbsp; example@gmail.com</h4>
                 </div>
             </div>
     </div>

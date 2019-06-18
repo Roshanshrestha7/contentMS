@@ -91,6 +91,7 @@
             {{-- content start--}}
             <div class="card-body" >
                 <div class="col-md-12" style="background-color: lightgrey; padding-top: 5px">
+
                     @if($gallery->count()>0)
                         @foreach($gallery as $galleries)
                             <div class="col-md-4" style="padding: 10px; border-radius: 3%;">

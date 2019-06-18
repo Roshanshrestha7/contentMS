@@ -6,16 +6,25 @@ use App\Contact;
 use App\Http\Requests\ContactRequest;
 use Illuminate\Http\Request;
 use Session;
+use App\Repository\ContactRepository;
 class ContactController extends Controller
 {
+    private $Contact;
+    private $contactRepository;
     /**
      * Display a listing of the resource.
      *
      * @return \Illuminate\Http\Response
      */
+    public function __construct(ContactRepository $contactRepository)
+    {
+        $this->contactRepository = $contactRepository;
+    }
+
     public function index()
     {
-        //
+       $contact =  $this->contactRepository->all();
+       return view('admin.message.index',compact('contact'));
     }
 
     /**   
@@ -83,6 +92,9 @@ class ContactController extends Controller
      */
     public function destroy($id)
     {
-        //
+        $contact = $this->contactRepository->findById($id);
+        $contact->delete();
+        session::flash('success','Message Deleted Successfully');
+        return back();
     }
 }

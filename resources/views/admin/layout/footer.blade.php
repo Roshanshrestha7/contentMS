@@ -49,12 +49,18 @@
 <script type="text/javascript" src="{{ asset('js/bootstrap.js') }}"></script>
 <script src="https://cdn.ckeditor.com/4.11.4/standard/ckeditor.js"></script>
 
+    <!-- DataTables -->
+    <script src="{{asset('bower_components/datatables.net/js/jquery.dataTables.min.js')}}"></script>
+    <script src="{{asset('bower_components/datatables.net-bs/js/dataTables.bootstrap.min.js')}}"></script>
+
+
 
 <script src="{{asset('bower_components/ckeditor/ckeditor.js')}}"></script>
 <!-- Bootstrap WYSIHTML5 -->
 <script src="{{asset('plugins/bootstrap-wysihtml5/bootstrap3-wysihtml5.all.min.js ')}}"></script>
-@yield('js')
-<script>
+    @yield('js')
+
+    <script>
     $(function () {
         // Replace the <textarea id="editor1"> with a CKEditor
         // instance, using default configuration.
@@ -78,6 +84,18 @@
     $('#datepicker').datepicker({
         autoclose: true})
 </script>
+    <script>
+        $(function () {
+            $('#example1').DataTable({
+                'paging'      : true,
+                'lengthChange': true,
+                'searching'   : true,
+                'ordering'    : true,
+                'info'        : true,
+                'autoWidth'   : false
+            })
+        })
+    </script>
 
 </footer>
 

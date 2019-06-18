@@ -30,47 +30,60 @@
                     <div class="box-body">
                         <div class="form-group">
                             <label for="exampleInputEmail1">Page Menu</label>
-                            <select class="form-control" name="parent_page_id">
-                                <option value="">Select Parent Page</option>
-                                @foreach($pages as $item)
+                            {{--<select class="form-control" name="parent_page_id">--}}
+                                {{--<option value="">Select Parent Page</option>--}}
+                                {{--@foreach($pages as $item)--}}
 
-                                    @if($item->id==$page->parent_page_id)
+                                    {{--@if($item->id==$page->parent_page_id)--}}
 
-                                        <option value="{{$item->id}}" selected>{{$item->title}}</option>
+                                        {{--<option value="{{$item->id}}" selected>{{$item->title}}</option>--}}
 
-                                    @else
+                                    {{--@else--}}
 
-                                        <option value="{{$item->id}}">{{$item->title}}</option>
+                                        {{--<option value="{{$item->id}}">{{$item->title}}</option>--}}
 
 
-                                    @endif
+                                    {{--@endif--}}
 
-                                @endforeach
-                            </select>
+                                {{--@endforeach--}}
+                            {{--</select>--}}
+                            {{Form::select('parent_page_id',$pages->pluck('title','id'),Request::get('title'),['class'=>'form-control select2','id'=>'parent_page_id','placeholder'=>
+                                         'Select Parent Page'])}}
 
                         </div>
-                        <div class="form-group">
+                        <div class="form-group {{ ($errors->has('title'))?'has-error':'' }}">
                             <label for="exampleInputPassword1">Title</label>
-                            <input type="text" class="form-control" value="{{$page->title}}" name="title" id="inputEmail3" placeholder="Title">
+                            {{Form::text('title',null,['class' => 'form-control'])}}
+                            {{--<input type="text" class="form-control" value="{{$page->title}}" name="title" id="inputEmail3" placeholder="Title">--}}
+                            {!! $errors->first('title', '<span class="text-danger">:message</span>') !!}
                         </div>
-                        <div class="form-group">
+                        <div class="form-group {{ ($errors->has('description'))?'has-error':'' }}">
                             <label for="exampleInputFile">Description</label>
-                            <textarea  name="description" placeholder="Place some text here"
-                                       style="width: 100%; height: 200px; font-size: 14px; line-height: 18px; border: 1px solid #dddddd; padding: 10px;">{{$page->description}}</textarea>
+                            {{Form::textarea('description',null,['class' => 'form-control','placeholder' => 'place some text here'])}}
+                            {!! $errors->first('description', '<span class="text-danger">:message</span>') !!}
+                            {{--<textarea  name="description" placeholder="Place some text here"--}}
+                                       {{--style="width: 100%; height: 200px; font-size: 14px; line-height: 18px; border: 1px solid #dddddd; padding: 10px;">{{$page->description}}</textarea>--}}
                         </div>
                         <div class="form-group">
                             <label for="status"> Active ?</label><br>
                             {{Form::radio('status', 'active',true,['class'=>'minimal-red'])}} Active
                             &nbsp;&nbsp;&nbsp;
                             {{Form::radio('status', 'inactive',null,['class'=>'minimal-red'])}} Inactive
+                            {{--{{Form::radio('status', 'active',true,['class'=>'minimal-red'])}} Active--}}
+                            {{--&nbsp;&nbsp;&nbsp;--}}
+                            {{--{{Form::radio('status', 'inactive',null,['class'=>'minimal-red'])}} Inactive--}}
                         </div>
                         {{--<div class="form-group">--}}
                             {{--<label for="exampleInputFile">Action</label>&nbsp &nbsp--}}
                             {{--<input type="radio" name="status" value="active" checked >Active &nbsp &nbsp--}}
                             {{--<input type="radio" name="status" value="inactive">Inactive--}}
                         {{--</div>--}}
+                        <div class="form-group {{ ($errors->has('order'))?'has-error':'' }}">
                         <label for="order">Page Order</label>&nbsp &nbsp
-                        <input type="integer"  name="order" value="{{$page->order}}" placeholder="order">
+                            {{Form::number('order',null,['placeholder' => 'Order'])}}
+                            {{--<input type="integer"  name="order" value="{{$page->order}}" placeholder="order">--}}
+                            {!! $errors->first('order', '<span class="text-danger">:message</span>') !!}
+                        </div>
                     </div>
 
                 </div>

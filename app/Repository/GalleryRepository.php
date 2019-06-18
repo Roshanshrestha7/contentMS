@@ -22,9 +22,9 @@ class GalleryRepository
     {
         $gallery= $this->gallery->select('galleries.*')
             ->orderBy('id','ASC')
-            ->get();
+            ->paginate(5);
 
-        $galleries=$this->gallery->all();
+
         return $gallery;
 
     }

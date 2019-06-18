@@ -49,6 +49,24 @@
                     </a>
                 </li>
                 <li>
+                    <a href=" {{route('contact.index')}} ">
+                        <i class="fa fa-envelope"></i><span>Message</span>
+                        <span class="pull-right-container"></span>
+                    </a>
+                </li>
+                <li>
+                    <a href=" {{route('subscribe.index')}} ">
+                        <i class="fa fa-angellist"></i><span>Subscribers</span>
+                        <span class="pull-right-container"></span>
+                    </a>
+                </li>
+                <li>
+                    <a href=" {{route('newsletter.index')}} ">
+                        <i class="fa fa-newspaper-o"></i><span>Newsletters</span>
+                        <span class="pull-right-container"></span>
+                    </a>
+                </li>
+                <li>
                     @if(Auth::user()->admin)
                         <a href="{{route('user.index')}}">
                             <i class="fa fa-user"></i><span>User</span>

@@ -17,11 +17,12 @@ class CreateEventsTable extends Migration
             $table->bigIncrements('id');
             $table->string('title');
             $table->text('description');
-            $table->string('banner');
+            $table->string('image');
             $table->string('venue');
             $table->date('from_date');
             $table->date('to_date');
-            $table->time('time');
+            $table->time('start_time');
+            $table->time('end_time');
             $table->integer('user_id');
             $table->enum('status',['active','inactive'])->default('active');
             $table->integer('order');

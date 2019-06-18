@@ -48,28 +48,55 @@
 </script>
 
 
-        <div class="footers col-md-12 col-s-12">
+        <div class="footers col-md-12 col-s-12" style="padding-bottom: 10px">
 
                 <div class="row" style="padding-right: 10px">
-                        <div class="col-sm-12 col-md-12" style="padding-top: 10px">
-                                <div style="padding-left: 70px">
-                                <a href="{{route('contact')}}" class="btn btn-success btn-xs">Connect With Us<i class="fa fa-hand-point-right"></i></a>
-                                        <ul class="list-unstyled list-inline social pull-right " style="padding-right: 60px">
-                                                <li class="list-inline-item"><a href=""><i class="fa fa-facebook"></i></a></li>
-                                                <li class="list-inline-item"><a href=""><i class="fa fa-twitter"></i></a></li>
-                                                <li class="list-inline-item"><a href=""><i class="fa fa-instagram"></i></a></li>
-                                        </ul>
+                        <div class="col-sm-12 col-md-12" >
+                                <div class="col-md-1"></div>
+                                <div class="col-md-3">
+                                        <h3>CMS</h3>
+                                        <h6><i class="fa fa-map-marker"></i>&nbsp; Young Minds Tower, Chowk Prayag <br> Shanti Nagar, Prayag Marg, <br> Kathmandu 44600</h6>
+                                        <h6><i class="fa fa-phone"></i>&nbsp; 01-661234</h6>
+                                        <h6><i class="fa fa-envelope-open"></i>&nbsp; example@gmail.com</h6>
                                 </div>
+                                <div class="col-md-2 " >
+                                        <h3>QUICK LINKS</h3>
+                                        <h6><a href="{{ route('frontend') }}" style="color: black">Home</a></h6>
+                                        <h6><a href="" style="color: black">About Us</a></h6>
+                                        <h6><a href="{{ route('notice') }}" style="color: black">Notice</a></h6>
+                                        <h6><a href="{{ route('event') }}" style="color: black">Event</a></h6>
+
+                                </div>
+                                <div class="col-md-3">
+                                    <h3>SUBSCRIBE</h3>
+                                    Enter your mail address and click 'Subscribe' to get in touch our upcoming events and news.
+
+                                    {{ Form::open(array('url' => 'admin/subscribe','method' => 'post')) }}
+                                            {{ csrf_field() }}
+                                            <br>
+
+                                                <input name="email" class="form" required="required"  placeholder="Your Email Address" type="email">
+                                                <button class="btn btn-success btn-xs">Subscribe</button>
+                                    {{ Form::close() }}
+                                </div>
+                                <div class="col-md-3 text-center" style="padding-top: 20px">
+                                    <a href="{{route('contact')}}" class="btn btn-success btn-xs">Connect With Us<i class="fa fa-hand-point-right"></i></a>
+                                        <br>
+                                        <br>
+                                        <div class="row">
+                                            <a href=""><i class="fa fa-facebook"></i></a>&nbsp &nbsp &nbsp &nbsp;
+                                            <a href=""><i class="fa fa-twitter"></i></a>&nbsp &nbsp &nbsp &nbsp;
+                                            <a href=""><i class="fa fa-instagram"></i></a>
+                                    </div>
+                                        <p class="h6">&copy All right Reversed.</p>
+
+                                </div>
+
 
                         </div>
                         </hr>
                 </div>
-                <div class="row">
-                        <div class="col-xs-12 col-sm-12 col-md-12 mt-2 mt-sm-2 text-center text-white">
-                                <p class="h6">&copy All right Reversed.</p>
-                        </div>
-                        </hr>
-                </div>
+
         </div>
 
 

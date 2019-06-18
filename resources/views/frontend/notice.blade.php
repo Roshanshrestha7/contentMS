@@ -1,7 +1,7 @@
 @extends('frontend.layout.app')
 
 @section('content')
-    <div class="card col-md-12" style=" min-height: 583px; padding-top: 10px;" >
+    <div class="card col-md-12" style=" min-height: 495px; padding-top: 10px;" >
         <div class="row" style="padding: 30px">
 
                 <h1 style="color: darkred">Notice</h1>
@@ -38,7 +38,7 @@
                                     </td>
                                     <td>
                                         <a href="{{asset($notices->file)}}"
-                                           target="_blank"
+                                          data-target="_blank"
                                            class="mailbox-attachment-name"><i
                                                     class="fa fa-paperclip"></i>
                                             Notice File </a>
@@ -75,10 +75,10 @@
                             <tr>
                                 <th colspan="6" class="text-center">NO Notices</th>
                             </tr>
-
                         @endif
                     </tbody>
                 </table>
+            <span class="pull-right">{{ $notice->links() }}</span>
         </div>
     </div>
 @endsection

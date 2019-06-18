@@ -29,7 +29,7 @@
 
                             <div class="row">
                                 <div class="col-sm-12">
-                                    <table id="example2" class="table table-bordered table-hover table-responsive" role="grid"
+                                    <table id="example1" class="table table-bordered table-hover table-responsive" role="grid"
                                            aria-describedby="example2_info">
                                         <thead>
                                         <tr role="row">
@@ -44,10 +44,11 @@
                                                 Banner
                                             </th>
                                             <th>
-                                                From
+                                                Date
                                             </th>
+
                                             <th>
-                                                To
+                                                Time
                                             </th>
                                             <th>
                                                 Post_by
@@ -64,6 +65,68 @@
                                         </tr>
                                         </thead>
                                         <tbody>
+                                        @if($events->count()>0)
+                                            <?php $i=1?>
+                                            @foreach($events as $event)
+                                                <tr>
+                                                    <td>{{ $i++ }}</td>
+                                                    <td>
+                                                        {{$event->title}}
+
+                                                    </td>
+                                                    <td>
+                                                        <a class="fancybox" rel="gallery1" href="{{asset($event->image)}}" title="Twilight Memories (doraartem)">
+
+                                                        <img src="{{asset($event->image)}}" width="100px" height="60px" >
+                                                        </a>
+                                                    </td>
+                                                    <td>
+                                                        {{$event->from_date}} -{{$event->to_date}}
+                                                    </td>
+
+                                                    <td>
+                                                        {{$event->start_time}} - {{$event->end_time}}
+                                                    </td>
+                                                    <td>
+                                                        {{$event->user->name}}
+                                                    </td>
+
+                                                    <td>
+                                                        @if($event->status=='active')
+                                                            <a href="{{route('event.status',['id' => $event->id])}}" class="btn btn-sm btn-success">Active</a>
+                                                        @elseif($event->status == 'inactive')
+                                                            <a href="{{route('event.status',['id' => $event->id])}}" class="btn btn-sm btn-danger">Inactive</a>
+                                                        @endif
+                                                    </td>
+                                                    <td>{{$event->order}}</td>
+                                                    <td>
+                                                        <a href="{{route('event.show',['id' => $event->id])}}"><i class="fa fa-eye" style="font-size: 20px"></i></a>&nbsp &nbsp
+
+                                                        <a href="{{route('event.edit',['id' => $event->id])}}"><i class="fa fa-edit" style="font-size: 20px"></i></a>&nbsp &nbsp
+
+                                                        {!! Form::open(['method' => 'DELETE', 'route'=>['event.destroy',
+                                                                                                                $event->id],'class'=> 'inline']) !!}
+                                                        <button type="submit"
+                                                                class="btn btn-danger btn-xs deleteButton actionIcon"
+                                                                data-toggle="tooltip"
+                                                                data-placement="top" title="Delete"
+                                                                onclick="javascript:return confirm('Are you sure you want to delete?');">
+                                                            <i class="fa fa-trash-o"></i>
+                                                        </button>
+
+                                                        {!! Form::close() !!}
+                                                    </td>
+
+                                                </tr>
+
+
+                                            @endforeach
+                                        @else
+                                            <tr>
+                                                <th colspan="6" class="text-center">NO Events</th>
+                                            </tr>
+
+                                        @endif
 
 
                                     </table>
